@@ -102,7 +102,7 @@ const App = () => {
     TokenContract.events.allEvents({ fromBlock: "latest" }, (err, data) => {
       if (data) {
         if (data.event === "PurchasedListing" || data.event === "CancelledListing") {
-          console.log(data)
+          // console.log(data)
           if (
             data.returnValues.nftAddress === "0xA0534687BAfefAE952785FEe997C42d616331088"
           ) {
@@ -210,54 +210,57 @@ const App = () => {
             }
           />
         </Row>
-        <div className="d-flex">
-          <Form.Group className="mb-3 ms-auto d-flex align-items-center">
-            <Form.Label className="fs-5 me-2">Показывать первые:</Form.Label>
-            <Form.Control
-              type="number"
-              style={{ width: "80px" }}
-              min={10}
-              step={10}
-              max={1000}
-              value={showLastItems}
-              onChange={(e) => setShowLastItems(e.target.value)}
-            />
-          </Form.Group>
+        <div className="TrackingDiv">
+          <div className="d-flex mb-3">
+            <h2 className="fs-1">Трэкинг</h2>
+            <Form.Group className="mb-3 ms-auto d-flex align-items-center">
+              <Form.Label className="fs-5 me-2">Показывать первые:</Form.Label>
+              <Form.Control
+                type="number"
+                style={{ width: "80px" }}
+                min={10}
+                step={10}
+                max={1000}
+                value={showLastItems}
+                onChange={(e) => setShowLastItems(e.target.value)}
+              />
+            </Form.Group>
+          </div>
+          <Row>
+            <Col>
+              <h2>Weapons: {weapons.length}</h2>
+              <ListGroup variant="flush" className="items-list">
+                {weaponsSlice.map((i) => (
+                  <ListGroup.Item key={i.id}>
+                    <span>
+                      Id: {i.id}, Price: {i.price}
+                    </span>
+                    <span className="text-muted">
+                      {" "}
+                      ≈ {(i.price * hrbPrice).toFixed(2)}$
+                    </span>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </Col>
+            <Col>
+              <h2>Characters: {chars.length}</h2>
+              <ListGroup variant="flush" className="items-list">
+                {charsSlice.map((i) => (
+                  <ListGroup.Item key={i.id}>
+                    <span>
+                      Id: {i.id}, Price: {i.price}
+                    </span>
+                    <span className="text-muted">
+                      {" "}
+                      ≈ {(i.price * hrbPrice).toFixed(2)}$
+                    </span>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </Col>
+          </Row>
         </div>
-        <Row>
-          <Col>
-            <h2>Weapons: {weapons.length}</h2>
-            <ListGroup variant="flush" className="items-list">
-              {weaponsSlice.map((i) => (
-                <ListGroup.Item key={i.id}>
-                  <span>
-                    Id: {i.id}, Price: {i.price}
-                  </span>
-                  <span className="text-muted">
-                    {" "}
-                    ≈ {(i.price * hrbPrice).toFixed(2)}$
-                  </span>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Col>
-          <Col>
-            <h2>Characters: {chars.length}</h2>
-            <ListGroup variant="flush" className="items-list">
-              {charsSlice.map((i) => (
-                <ListGroup.Item key={i.id}>
-                  <span>
-                    Id: {i.id}, Price: {i.price}
-                  </span>
-                  <span className="text-muted">
-                    {" "}
-                    ≈ {(i.price * hrbPrice).toFixed(2)}$
-                  </span>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Col>
-        </Row>
       </div>
     </Container>
   )

@@ -3,10 +3,10 @@ import "./InfoCard.css"
 
 const InfoCard = (props) => {
   return (
-    <Col xs={4}>
+    <Col sm={12} md={6} lg={4} className="InfoCardCol">
       <div className="InfoCard">
-        <div>{props.title}:</div>
-        <div>{props.value}</div>
+        <div className="cardTitle">{props.title}:</div>
+        <div className="cardText">{props.value}</div>
       </div>
     </Col>
   )

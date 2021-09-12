@@ -1,0 +1,23 @@
+.InfoCard {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  height: 100%;
+}
+
+.InfoCard .cardTitle {
+  font-size: 20px;
+  text-align: center;
+}
+
+.InfoCard .cardText {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+.InfoCardCol {
+  margin-bottom: 20px;
+}
