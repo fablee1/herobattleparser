@@ -211,8 +211,9 @@ const App = () => {
           />
         </Row>
         <div className="TrackingDiv">
+          <h2 className="fs-1 d-sm-none text-center mb-4">Трэкинг</h2>
           <div className="d-flex mb-3">
-            <h2 className="fs-1">Трэкинг</h2>
+            <h2 className="fs-1 d-none d-sm-block">Трэкинг</h2>
             <Form.Group className="mb-3 ms-auto d-flex align-items-center">
               <Form.Label className="fs-5 me-2">Показывать первые:</Form.Label>
               <Form.Control
@@ -227,7 +228,7 @@ const App = () => {
             </Form.Group>
           </div>
           <Row>
-            <Col>
+            <Col xs={12} md={6}>
               <h2>Weapons: {weapons.length}</h2>
               <ListGroup variant="flush" className="items-list">
                 {weaponsSlice.map((i) => (
@@ -243,7 +244,7 @@ const App = () => {
                 ))}
               </ListGroup>
             </Col>
-            <Col>
+            <Col xs={12} md={6}>
               <h2>Characters: {chars.length}</h2>
               <ListGroup variant="flush" className="items-list">
                 {charsSlice.map((i) => (
