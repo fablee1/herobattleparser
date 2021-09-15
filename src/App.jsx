@@ -196,13 +196,13 @@ const App = () => {
       </div>
       <div>
         <Row>
-          <InfoCard title="Цена HRB" value={`${hrbPrice}$`} />
+          <InfoCard title="HRB Price" value={`${hrbPrice}$`} />
           <InfoCard
-            title="Самый дешёвый за сеанс"
+            title="Cheapest this session"
             value={cheapestToday.type + " - " + cheapestToday.price + " HRB"}
           />
           <InfoCard
-            title="Самый дешёвый сейчас"
+            title="Cheapest right now"
             value={
               weaponsSlice[0]?.price < charsSlice[0]?.price
                 ? `Оружие - ${weaponsSlice[0]?.price} HRB`
@@ -211,11 +211,11 @@ const App = () => {
           />
         </Row>
         <div className="TrackingDiv">
-          <h2 className="fs-1 d-sm-none text-center mb-4">Трэкинг</h2>
+          <h2 className="fs-1 d-sm-none text-center mb-4">Tracking</h2>
           <div className="d-flex mb-3">
-            <h2 className="fs-1 d-none d-sm-block">Трэкинг</h2>
+            <h2 className="fs-1 d-none d-sm-block">Tracking</h2>
             <Form.Group className="mb-3 ms-auto d-flex align-items-center">
-              <Form.Label className="fs-5 me-2">Показывать первые:</Form.Label>
+              <Form.Label className="fs-5 me-2">Show First:</Form.Label>
               <Form.Control
                 type="number"
                 style={{ width: "80px" }}
