@@ -40,13 +40,13 @@ const App = () => {
     if (weaponsSlice.length !== showLastItems)
       setWeaponsSlice(weapons.slice(0, showLastItems))
     if (weapons[0]?.price < cheapestToday.price)
-      setCheapestToday({ type: "Оружие", price: weapons[0].price })
+      setCheapestToday({ type: "Weapon", price: weapons[0].price })
   }, [weapons, showLastItems, cheapestToday.price, weaponsSlice.length])
 
   useEffect(() => {
     if (charsSlice.length !== showLastItems) setCharsSlice(chars.slice(0, showLastItems))
     if (chars[0]?.price < cheapestToday.price)
-      setCheapestToday({ type: "Герой", price: chars[0].price })
+      setCheapestToday({ type: "Hero", price: chars[0].price })
   }, [chars, showLastItems, cheapestToday.price, charsSlice.length])
 
   useEffect(() => {
@@ -205,8 +205,8 @@ const App = () => {
             title="Cheapest right now"
             value={
               weaponsSlice[0]?.price < charsSlice[0]?.price
-                ? `Оружие - ${weaponsSlice[0]?.price} HRB`
-                : `Герой - ${charsSlice[0]?.price} HRB`
+                ? `Weapon - ${weaponsSlice[0]?.price} HRB`
+                : `Hero - ${charsSlice[0]?.price} HRB`
             }
           />
         </Row>
